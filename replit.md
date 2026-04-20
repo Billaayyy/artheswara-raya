@@ -4,6 +4,10 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+- **artheswara-raya** (`artifacts/artheswara-raya/`) — Premium single-page landing site for Artheswara Raya interior design studio. React + Vite, Framer Motion animations, AI-generated imagery, WhatsApp CTA, fully frontend-only (no backend).
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
