@@ -50,9 +50,9 @@ export default function Home() {
 
           {/* Desktop Nav */}
           <div className={`hidden md:flex items-center gap-8 text-sm font-medium tracking-wide ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>
-            <button onClick={() => scrollTo('about')} className="hover:text-primary transition-colors">Atelier</button>
-            <button onClick={() => scrollTo('services')} className="hover:text-primary transition-colors">Expertise</button>
-            <button onClick={() => scrollTo('portfolio')} className="hover:text-primary transition-colors">Journal</button>
+            <button onClick={() => scrollTo('about')} className="hover:text-primary transition-colors">About Us</button>
+            <button onClick={() => scrollTo('services')} className="hover:text-primary transition-colors">Services</button>
+            <button onClick={() => scrollTo('portfolio')} className="hover:text-primary transition-colors">Projects</button>
             <Button 
               variant="outline" 
               className={`rounded-none border px-6 ${isScrolled ? "border-foreground text-foreground hover:bg-foreground hover:text-background" : "border-white text-white hover:bg-white hover:text-foreground bg-transparent"}`}
@@ -74,10 +74,10 @@ export default function Home() {
 
       {/* Mobile Menu */}
       <div className={`fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out ${mobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}>
-        <button onClick={() => scrollTo('about')} className="text-2xl font-serif text-foreground hover:text-primary">Atelier</button>
-        <button onClick={() => scrollTo('services')} className="text-2xl font-serif text-foreground hover:text-primary">Expertise</button>
-        <button onClick={() => scrollTo('portfolio')} className="text-2xl font-serif text-foreground hover:text-primary">Journal</button>
-        <button onClick={() => scrollTo('contact')} className="text-2xl font-serif text-foreground hover:text-primary">Consultation</button>
+        <button onClick={() => scrollTo('about')} className="text-2xl font-serif text-foreground hover:text-primary">About Us</button>
+        <button onClick={() => scrollTo('services')} className="text-2xl font-serif text-foreground hover:text-primary">Services</button>
+        <button onClick={() => scrollTo('portfolio')} className="text-2xl font-serif text-foreground hover:text-primary">Projects</button>
+        <button onClick={() => scrollTo('contact')} className="text-2xl font-serif text-foreground hover:text-primary">Contact</button>
       </div>
 
       {/* Hero Section */}
@@ -101,7 +101,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-white/80 uppercase tracking-[0.3em] text-xs md:text-sm mb-6"
           >
-            Jakarta, Indonesia
+            Gunung Putri, Bogor
           </motion.p>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -109,7 +109,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-medium leading-tight max-w-4xl"
           >
-            Crafting Spaces of <span className="italic text-primary">Quiet Elegance</span>
+            Discover Your Perfect <span className="italic text-primary">Dream</span> Home
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -160,8 +160,8 @@ export default function Home() {
               <div className="mt-10 flex items-center gap-4">
                 <img src="/images/gallery-1.png" alt="Craftsmanship" className="w-16 h-16 object-cover rounded-full" />
                 <div>
-                  <p className="font-serif text-lg text-foreground">Bima Artheswara</p>
-                  <p className="text-sm text-muted-foreground tracking-wider uppercase">Master Craftsman</p>
+                  <p className="font-serif text-lg text-foreground">Suwito</p>
+                  <p className="text-sm text-muted-foreground tracking-wider uppercase">Owner & Designer</p>
                 </div>
               </div>
             </div>
@@ -172,12 +172,12 @@ export default function Home() {
           </motion.div>
 
           <div className="mt-32 pt-16 border-t border-border flex flex-col items-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8 text-center">Trusted By Visionary Developers</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8 text-center">Trusted By Visionary Clients</p>
             <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale">
-              <span className="font-serif text-2xl font-bold">Kavling</span>
-              <span className="font-serif text-2xl font-bold">LUMIERE</span>
-              <span className="font-serif text-2xl font-bold">AETERNA</span>
-              <span className="font-serif text-2xl font-bold">SANTAL</span>
+              <span className="font-serif text-2xl font-bold">BMW</span>
+              <span className="font-serif text-2xl font-bold">Mall Roxy</span>
+              <span className="font-serif text-2xl font-bold">Panasonic</span>
+              <span className="font-serif text-2xl font-bold">Ga tau</span>
             </div>
           </div>
         </div>
@@ -316,8 +316,8 @@ export default function Home() {
                     <MapPin size={20} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Studio & Showroom</p>
-                    <p className="text-background/60 font-light text-sm">Jl. Senopati Raya No. 45, Jakarta Selatan</p>
+                    <p className="font-medium">Our Location</p>
+                    <p className="text-background/60 font-light text-sm">Gunung Putri, Bogor, Indonesia.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -326,7 +326,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-medium">Direct Line</p>
-                    <p className="text-background/60 font-light text-sm">+62 812-3456-7890</p>
+                    <p className="text-background/60 font-light text-sm">+62 895-3432-62675</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -335,7 +335,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-background/60 font-light text-sm">inquiries@artheswara.com</p>
+                    <p className="text-background/60 font-light text-sm">artheswara.furniture@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -350,7 +350,7 @@ export default function Home() {
             >
               <h3 className="text-2xl font-serif mb-6">Request a Consultation</h3>
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div>
+                <div> 
                   <label className="block text-sm font-medium mb-2">Full Name</label>
                   <Input className="rounded-none border-border bg-transparent h-12 focus-visible:ring-primary" placeholder="Jane Doe" />
                 </div>
@@ -376,9 +376,7 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="font-serif text-xl text-white tracking-widest">ARTHESWARA</div>
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">Pinterest</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/artheswara_furniture/?utm_source=ig_web_button_share_sheet" className="hover:text-white transition-colors">Instagram</a>
           </div>
           <div className="text-sm font-light">
             &copy; {new Date().getFullYear()} Artheswara Raya. All rights reserved.
