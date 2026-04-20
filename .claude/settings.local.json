@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r artifacts/artheswara-raya/src .)",
+      "Bash(cp -r artifacts/artheswara-raya/public .)",
+      "Bash(cp artifacts/artheswara-raya/index.html .)",
+      "Bash(cp artifacts/artheswara-raya/package.json ./app-package.json)",
+      "Bash(cp artifacts/artheswara-raya/tsconfig.json ./tsconfig.json)",
+      "Bash(rm -rf artifacts attached_assets lib scripts .agents .local .replit .replitignore .npmrc pnpm-lock.yaml pnpm-workspace.yaml replit.md tsconfig.base.json package.json)",
+      "Bash(mv app-package.json package.json)",
+      "Bash(grep -v -E \"^\\(button|input|textarea|toast|toaster|tooltip\\)\\\\.tsx$\")",
+      "Bash(xargs rm:*)"
+    ]
+  }
+}
