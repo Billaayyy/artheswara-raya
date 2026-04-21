@@ -372,11 +372,8 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#1a1513] py-10 md:py-12 border-t border-white/10 text-white/50">
-        <div className="container mx-auto px-4 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+        <div className="container mx-auto px-4 md:px-12 flex flex-col items-center gap-3 text-center">
           <div className="font-serif text-xl text-white tracking-widest">ARTHESWARA</div>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="https://www.instagram.com/artheswara_furniture/?utm_source=ig_web_button_share_sheet" className="hover:text-white transition-colors">Instagram</a>
-          </div>
           <div className="text-sm font-light">
             &copy; {new Date().getFullYear()} Artheswara Raya. All rights reserved.
           </div>
