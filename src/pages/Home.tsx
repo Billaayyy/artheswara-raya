@@ -183,16 +183,15 @@ export default function Home() {
                 Rooted in the rich heritage of Indonesian woodworking and elevated by contemporary global sensibilities, our atelier bridges the gap between luxury hospitality and residential warmth. Every joint, every finish, every choice of stone is a deliberate act of design.
               </p>
               <div className="mt-8 md:mt-10 flex items-center gap-4">
-                <img src="/images/gallery-1.png" alt="Craftsmanship" className="w-14 h-14 md:w-16 md:h-16 object-cover rounded-full" />
                 <div>
-                  <p className="font-serif text-lg text-foreground">Suwito</p>
+                  <p className="font-serif text-lg text-foreground">— Suwito</p>
                   <p className="text-sm text-muted-foreground tracking-wider uppercase">Owner & Designer</p>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <img src="/images/gallery-1.png" alt="Detail 1" className="w-full h-[200px] md:h-[300px] object-cover object-center" />
-              <img src="/images/gallery-5.png" alt="Detail 2" className="w-full h-[200px] md:h-[300px] object-cover object-center mt-6 md:mt-8" />
+              <img src="/images/pict1.png" alt="Detail 1" className="w-full h-[200px] md:h-[300px] object-cover object-center" />
+              <img src="/images/pict2.png" alt="Detail 2" className="w-full h-[200px] md:h-[300px] object-cover object-center mt-6 md:mt-8" />
             </div>
           </motion.div>
 
