@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ArrowRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TrustBlock from "@/components/TrustBlock";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -195,15 +196,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="mt-16 md:mt-32 pt-12 md:pt-16 border-t border-border flex flex-col items-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 md:mb-8 text-center">Trusted By Visionary Clients</p>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-24 opacity-40 grayscale">
-              <span className="font-serif text-xl md:text-2xl font-bold">BMW</span>
-              <span className="font-serif text-xl md:text-2xl font-bold">Mall Roxy</span>
-              <span className="font-serif text-xl md:text-2xl font-bold">Panasonic</span>
-              <span className="font-serif text-xl md:text-2xl font-bold">Ga tau</span>
-            </div>
-          </div>
+          <TrustBlock />
         </div>
       </section>
 
