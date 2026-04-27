@@ -174,14 +174,14 @@ export default function Home() {
           >
             <div>
               <h2 className="text-3xl md:text-5xl font-serif text-foreground leading-tight">
-                The poetry is in the <span className="italic text-primary">precision</span>.
+                The Art is in the <span className="italic text-primary">detail</span>.
               </h2>
               <div className="w-12 h-[1px] bg-primary my-6 md:my-8" />
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-light mb-6">
-                At Artheswara Raya, we believe a home should be a reflection of your deepest values. We do not mass-produce; we tailor. We do not assemble; we craft.
+                At Artheswara Raya, we believe every home should reflect who you are. We create, we craft, and we bring your ideas to life.
               </p>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-light">
-                Rooted in the rich heritage of Indonesian woodworking and elevated by contemporary global sensibilities, our atelier bridges the gap between luxury hospitality and residential warmth. Every joint, every finish, every choice of stone is a deliberate act of design.
+                Drawing from local experience and modern design ideas, we create interiors that are both comfortable and stylish. Every corner, every texture, and every material is chosen to make your space feel personal, functional, and welcoming.
               </p>
               <div className="mt-8 md:mt-10 flex items-center gap-4">
                 <div>
