@@ -142,3 +142,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes breathe-border {
+  0%, 100% { box-shadow: 0 0 10px rgba(37,211,102,0.15), inset 0 0 8px rgba(37,211,102,0.05); }
+  50%       { box-shadow: 0 0 35px rgba(37,211,102,0.5), inset 0 0 20px rgba(37,211,102,0.15); }
+}
+
+@keyframes breathe-bubble {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+}

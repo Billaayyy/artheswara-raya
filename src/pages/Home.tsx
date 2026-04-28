@@ -3,9 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ArrowRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TrustBlock from "@/components/TrustBlock";
+import NavBrand from "@/components/NavBrand";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOnContact, setIsOnContact] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 300]);
@@ -17,6 +19,17 @@ export default function Home() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = document.getElementById("contact");
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsOnContact(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   const scrollTo = (id: string) => {
@@ -43,7 +56,7 @@ export default function Home() {
       icon: <Phone size={20} className="text-primary" />,
       label: "Whatsapp",
       value: "+62 895-3432-62675",
-      href: "https://wa.me/62895343262675",
+      href: "https://wa.me/62895343262675?text=Hello%20Artheswara%20Furniture!%20Saya%20ingin%20bertanya%20seputar%20design.",
     },
     {
       icon: <Mail size={20} className="text-primary" />,
@@ -64,24 +77,24 @@ export default function Home() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${
-          isScrolled ? "bg-background/95 backdrop-blur-md py-3 md:py-4 border-border/50 shadow-sm" : "bg-transparent py-4 md:py-6"
+          isOnContact
+            ? "bg-foreground py-3 md:py-4 border-white/10"
+            : isScrolled
+            ? "bg-background/95 backdrop-blur-md py-3 md:py-4 border-border/50 shadow-sm"
+            : "bg-transparent py-4 md:py-6"
         }`}
       >
         <div className="container mx-auto px-4 md:px-12 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo('home')}>
-            <span className={`font-serif text-xl md:text-2xl font-bold tracking-tight ${isScrolled ? "text-foreground" : "text-white"}`}>
-              ARTHESWARA
-            </span>
-          </div>
+          <NavBrand scrolled={isScrolled && !isOnContact} onClick={() => scrollTo('home')} />
 
           {/* Desktop Nav */}
-          <div className={`hidden md:flex items-center gap-8 text-sm font-medium tracking-wide ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>
+          <div className={`hidden md:flex items-center gap-8 text-sm font-medium tracking-wide ${isScrolled && !isOnContact ? "text-foreground/80" : "text-white/90"}`}>
             <button onClick={() => scrollTo('about')} className="hover:text-primary transition-colors">About Us</button>
             <button onClick={() => scrollTo('services')} className="hover:text-primary transition-colors">Services</button>
             <button onClick={() => scrollTo('portfolio')} className="hover:text-primary transition-colors">Projects</button>
             <Button
               variant="outline"
-              className={`rounded-none border px-6 ${isScrolled ? "border-foreground text-foreground hover:bg-foreground hover:text-background" : "border-white text-white hover:bg-white hover:text-foreground bg-transparent"}`}
+              className={`rounded-none border px-6 ${isScrolled && !isOnContact ? "border-foreground text-foreground hover:bg-foreground hover:text-background" : "border-white text-white hover:bg-white hover:text-foreground bg-transparent"}`}
               onClick={() => scrollTo('contact')}
             >
               Consultation
@@ -90,7 +103,7 @@ export default function Home() {
 
           {/* Mobile Toggle */}
           <button
-            className={`md:hidden p-2 ${isScrolled ? "text-foreground" : "text-white"}`}
+            className={`md:hidden p-2 ${isScrolled && !isOnContact ? "text-foreground" : "text-white"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -143,7 +156,7 @@ export default function Home() {
             transition={{ delay: 0.8, duration: 1 }}
             className="text-white/70 mt-6 md:mt-8 max-w-sm md:max-w-xl text-base md:text-xl font-light"
           >
-            Bespoke interior solutions and masterfully crafted furniture for those who appreciate the poetry of living well.
+            Custom interior design and well-crafted furniture built around function, comfort, and style.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -329,35 +342,62 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
-            {contactItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="flex items-center gap-4 border border-background/15 p-5 md:p-6"
-              >
-                <div className="w-12 h-12 border border-background/20 flex items-center justify-center shrink-0">
-                  {item.icon}
-                </div>
-                <div className="min-w-0">
-                  <p className="font-medium text-sm md:text-base">{item.label}</p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-background/60 font-light text-sm hover:text-primary transition-colors break-all"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-background/60 font-light text-sm">{item.value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+            {contactItems.map((item, i) => {
+              const isWA = item.href?.includes("wa.me");
+              return isWA ? (
+                <motion.a
+                  key={i}
+                  id="whatsapp-tile"
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="relative flex items-center gap-4 border border-[#25D366]/60 p-5 md:p-6 bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors duration-500 cursor-pointer overflow-hidden"
+                  style={{ animation: "breathe-border 3s ease-in-out infinite" }}
+                >
+                  <div className="relative w-12 h-12 bg-[#25D366] flex items-center justify-center shrink-0 rounded-full shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </div>
+                  <div className="relative min-w-0">
+                    <p className="font-medium text-sm md:text-base text-white">WhatsApp</p>
+                    <p className="text-[#25D366] font-light text-sm">{item.value}</p>
+                  </div>
+                </motion.a>
+              ) : (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className="flex items-center gap-4 border border-background/15 p-5 md:p-6"
+                >
+                  <div className="w-12 h-12 border border-background/20 flex items-center justify-center shrink-0">
+                    {item.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-medium text-sm md:text-base">{item.label}</p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-background/60 font-light text-sm hover:text-primary transition-colors break-all"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-background/60 font-light text-sm">{item.value}</p>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -373,27 +413,28 @@ export default function Home() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/62895343262675?text=Hello%20Artheswara%20Raya,%20Saya%20ingin%20menanyakan%20tentang%20proyek%20interior."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-4 md:right-6 z-50 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-xl hover:scale-110 transition-transform flex items-center justify-center"
-        aria-label="Chat on WhatsApp"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="26"
-          height="26"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+      <div className={`fixed bottom-6 right-4 md:right-6 z-50 transition-opacity duration-500 ${isOnContact ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
+        <button
+          onClick={() => document.getElementById("whatsapp-tile")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+          className="relative bg-[#25D366] text-white p-3 md:p-4 rounded-full hover:scale-110 transition-transform flex items-center justify-center"
+          style={{ animation: "breathe-bubble 3s ease-in-out infinite" }}
+          aria-label="Chat on WhatsApp"
         >
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-        </svg>
-      </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,9 @@
       "Bash(rm -rf artifacts attached_assets lib scripts .agents .local .replit .replitignore .npmrc pnpm-lock.yaml pnpm-workspace.yaml replit.md tsconfig.base.json package.json)",
       "Bash(mv app-package.json package.json)",
       "Bash(grep -v -E \"^\\(button|input|textarea|toast|toaster|tooltip\\)\\\\.tsx$\")",
-      "Bash(xargs rm:*)"
+      "Bash(xargs rm:*)",
+      "Bash(cp \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\handoff\\\\public\\\\images\\\\logo-light.png\" \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\Single-Page-Site\\\\public\\\\images\\\\logo-light.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\handoff\\\\public\\\\images\\\\logo-dark.png\" \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\Single-Page-Site\\\\public\\\\images\\\\logo-dark.png\")"
     ]
   }
 }
