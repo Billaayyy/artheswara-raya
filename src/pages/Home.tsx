@@ -233,18 +233,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                title: "Bespoke Kitchens",
-                desc: "The heart of the home, crafted for both grand entertaining and intimate mornings.",
+                title: "Kitchen Design",
+                desc: "Designed for efficiency and everyday use, balancing functionality with refined aesthetics.",
                 img: "/images/service-kitchen.png"
               },
               {
-                title: "Sanctuary Bedrooms",
-                desc: "Private retreats designed for deep rest, featuring custom wardrobes and mood lighting.",
+                title: "Bedrooms Design",
+                desc: "Carefully designed to support rest, comfort, and a well-balanced space.",
                 img: "/images/service-bedroom.png"
               },
               {
-                title: "Full Interior Form",
-                desc: "End-to-end design and execution for cohesive, breathtaking residential estates.",
+                title: "Repair Service",
+                desc: "Furniture repair services for everyday wear, damage, and basic restoration.",
                 img: "/images/service-full.png"
               }
             ].map((service, i) => (
