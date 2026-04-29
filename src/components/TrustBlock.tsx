@@ -26,7 +26,7 @@ export default function TrustBlock() {
     "Private Residences",
     "Medical Clinics",
     "Government Offices",
-    "Forestry Bureaus",
+    "Others",
   ];
 
   return (
