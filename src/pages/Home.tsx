@@ -237,17 +237,17 @@ export default function Home() {
               {
                 title: "Kitchen Design",
                 desc: "Designed for efficiency and everyday use, balancing functionality with refined aesthetics.",
-                img: "/images/service-kitchen.png"
+                img: "/images/kitchn.png"
               },
               {
                 title: "Bedrooms Design",
                 desc: "Carefully designed to support rest, comfort, and a well-balanced space.",
-                img: "/images/service-bedroom.png"
+                img: "/images/bedrum.png"
               },
               {
                 title: "Repair Service",
                 desc: "Furniture repair services for everyday wear, damage, and basic restoration.",
-                img: "/images/service-full.png"
+                img: "/images/servis.png"
               }
             ].map((service, i) => (
               <motion.div
