@@ -9,6 +9,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOnContact, setIsOnContact] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 300]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
@@ -73,6 +74,7 @@ export default function Home() {
   ];
 
   return (
+    <>
     <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
       {/* Navigation */}
       <nav
@@ -266,9 +268,6 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl md:text-2xl font-serif text-foreground mb-2 md:mb-3">{service.title}</h3>
                 <p className="text-muted-foreground font-light leading-relaxed mb-4 text-sm md:text-base">{service.desc}</p>
-                <div className="flex items-center text-primary font-medium tracking-wide text-sm group-hover:underline underline-offset-4">
-                  Explore <ArrowRight size={16} className="ml-2" />
-                </div>
               </motion.div>
             ))}
           </div>
@@ -309,16 +308,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="relative group overflow-hidden aspect-square"
+                className="relative overflow-hidden aspect-square cursor-pointer"
+                onClick={() => setLightboxImg(img)}
               >
                 <img
                   src={img}
                   alt={`Gallery ${i}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white tracking-widest text-xs md:text-sm uppercase border-b border-white pb-1">View Project</span>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -436,5 +433,26 @@ export default function Home() {
         </button>
       </div>
     </div>
+
+    {lightboxImg && (
+      <div
+        className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+        onClick={() => setLightboxImg(null)}
+      >
+        <button
+          className="absolute top-4 right-4 text-white opacity-70 hover:opacity-100 transition-opacity"
+          onClick={() => setLightboxImg(null)}
+        >
+          <X size={32} />
+        </button>
+        <img
+          src={lightboxImg}
+          alt="Preview"
+          className="max-w-full max-h-full object-contain rounded-sm shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   );
 }
