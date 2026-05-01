@@ -295,12 +295,12 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
             {[
-              "/images/gallery-2.png",
-              "/images/gallery-3.png",
-              "/images/gallery-4.png",
-              "/images/gallery-6.png",
-              "/images/service-kitchen.png",
-              "/images/service-bedroom.png"
+              "/images/pro1.png",
+              "/images/pro2.png",
+              "/images/pro3.png",
+              "/images/pro4.png",
+              "/images/pro5.png",
+              "/images/pro6.png"
             ].map((img, i) => (
               <motion.div
                 key={i}
