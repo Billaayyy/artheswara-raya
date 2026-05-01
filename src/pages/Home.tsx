@@ -7,12 +7,18 @@ import NavBrand from "@/components/NavBrand";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [isOnContact, setIsOnContact] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 300]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+
+  useEffect(() => {
+  const timeout = setTimeout(() => setIsLoaded(true), 100);
+  return () => clearTimeout(timeout);
+}, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +81,17 @@ export default function Home() {
 
   return (
     <>
+    {/* Loading Screen */}
+<div
+  className={`fixed inset-0 z-[9999] flex items-center justify-center bg-background transition-opacity duration-700 ${
+    isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+  }`}
+>
+  <div className="flex flex-col items-center gap-4">
+    <div className="w-10 h-10 rounded-full border-2 border-foreground/20 border-t-primary animate-spin" />
+    <p className="text-muted-foreground text-sm tracking-widest uppercase">Loading</p>
+  </div>
+</div>
     <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
       {/* Navigation */}
       <nav
