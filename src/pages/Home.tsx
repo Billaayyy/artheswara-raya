@@ -254,7 +254,7 @@ export default function Home() {
               {
                 title: "Kitchen Design",
                 desc: "Designed for efficiency and everyday use, balancing functionality with refined aesthetics.",
-                img: "/images/kitchn.png"
+                img: "/images/pro1.png"
               },
               {
                 title: "Bedrooms Design",
@@ -312,7 +312,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
             {[
-              "/images/pro1.png",
+              "/images/pengganti1.png",
               "/images/pro2.png",
               "/images/pro3.png",
               "/images/pro4.png",
