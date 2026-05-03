@@ -11,7 +11,9 @@
       "Bash(grep -v -E \"^\\(button|input|textarea|toast|toaster|tooltip\\)\\\\.tsx$\")",
       "Bash(xargs rm:*)",
       "Bash(cp \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\handoff\\\\public\\\\images\\\\logo-light.png\" \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\Single-Page-Site\\\\public\\\\images\\\\logo-light.png\")",
-      "Bash(cp \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\handoff\\\\public\\\\images\\\\logo-dark.png\" \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\Single-Page-Site\\\\public\\\\images\\\\logo-dark.png\")"
+      "Bash(cp \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\handoff\\\\public\\\\images\\\\logo-dark.png\" \"C:\\\\Users\\\\Billy\\\\Documents\\\\VsCode\\\\artheswara\\\\Single-Page-Site\\\\public\\\\images\\\\logo-dark.png\")",
+      "Bash(Get-ChildItem -Recurse -Depth 2)",
+      "Bash(Select-Object FullName)"
     ]
   }
 }

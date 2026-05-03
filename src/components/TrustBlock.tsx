@@ -47,6 +47,8 @@ export default function TrustBlock() {
             <img
               src={logo.src}
               alt={logo.alt}
+              loading="lazy"
+              decoding="async"
               className={`w-auto max-w-full object-contain ${logo.scale}`}
             />
           </a>

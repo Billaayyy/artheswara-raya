@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight, Instagram, Mail, MapPin, Phone } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import TrustBlock from "@/components/TrustBlock";
 import NavBrand from "@/components/NavBrand";
+import LazyImage from "@/components/LazyImage";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -149,6 +150,8 @@ export default function Home() {
             src="/images/hero.png"
             alt="Luxury Interior Design"
             className="w-full h-full object-cover scale-105"
+            fetchPriority="high"
+            decoding="async"
           />
         </motion.div>
 
@@ -223,8 +226,18 @@ export default function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <img src="/images/pict1.png" alt="Detail 1" className="w-full h-[200px] md:h-[300px] object-cover object-center" />
-              <img src="/images/pict2.png" alt="Detail 2" className="w-full h-[200px] md:h-[300px] object-cover object-center mt-6 md:mt-8" />
+              <LazyImage
+                src="/images/pict1.png"
+                alt="Detail 1"
+                className="w-full h-full object-cover object-center"
+                wrapperClassName="h-[200px] md:h-[300px]"
+              />
+              <LazyImage
+                src="/images/pict2.png"
+                alt="Detail 2"
+                className="w-full h-full object-cover object-center"
+                wrapperClassName="h-[200px] md:h-[300px] mt-6 md:mt-8"
+              />
             </div>
           </motion.div>
 
@@ -277,10 +290,11 @@ export default function Home() {
               >
                 <div className="relative overflow-hidden aspect-[4/3] mb-5 md:mb-6">
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                  <img
+                  <LazyImage
                     src={service.img}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    wrapperClassName="w-full h-full"
                   />
                 </div>
                 <h3 className="text-xl md:text-2xl font-serif text-foreground mb-2 md:mb-3">{service.title}</h3>
@@ -328,10 +342,11 @@ export default function Home() {
                 className="relative overflow-hidden aspect-square cursor-pointer"
                 onClick={() => setLightboxImg(img)}
               >
-                <img
+                <LazyImage
                   src={img}
                   alt={`Gallery ${i}`}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  wrapperClassName="w-full h-full"
                 />
               </motion.div>
             ))}
