@@ -366,7 +366,7 @@ export default function Home() {
           >
             <h2 className="text-3xl md:text-5xl font-serif mb-4">Let's discuss your space.</h2>
             <p className="text-background/70 text-base md:text-lg max-w-md mx-auto font-light">
-              Whether you're building a new home or refining an existing space, our atelier is ready to bring your vision to life.
+              Whether you're building a new home or refining an existing space, we are ready to bring your vision to life.
             </p>
           </motion.div>
 
